@@ -1,5 +1,6 @@
 package typeqast.testing.interview;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.function.Function;
 
@@ -20,7 +21,7 @@ public class ShoppingBasket {
     }
 
     public void addProduct(Product p) {
-        this.products.add(p);
+        this.products.add(new Product(p));
     }
 
     public void addDiscount(Function<ArrayList<Product>,ArrayList<Product>> discount){
@@ -29,7 +30,9 @@ public class ShoppingBasket {
 
     public float getTotal(){
         float total = 0.0f;
-
+        for (Function<ArrayList<Product>, ArrayList<Product>> f : discounts){
+            products = f.apply(products);
+        }
         for (Product p : products) total += p.getPrice();
         return total;
     }
