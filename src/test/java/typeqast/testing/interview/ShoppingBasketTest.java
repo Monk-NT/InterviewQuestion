@@ -15,16 +15,18 @@ public class ShoppingBasketTest {
     private Product milk;
     private Product bread;
 
+    final static private float EPSILON = 1e-3f;
+
 
     @Before
     public void setUp() {
         basket = new ShoppingBasket();
         butter = new Product("Butter");
-        butter.setPrice(new BigDecimal(0.8));
+        butter.setPrice(0.8f);
         milk = new Product("Milk");
-        milk.setPrice(new BigDecimal(1.15));
+        milk.setPrice(1.15f);
         bread = new Product("Bread");
-        bread.setPrice(new BigDecimal(1.0));
+        bread.setPrice(1.0f);
 
         basket.addDiscount(this::milkDiscount);
     }
@@ -35,12 +37,12 @@ public class ShoppingBasketTest {
         basket.addProduct(milk);
         basket.addProduct(bread);
 
-        assertEquals(new BigDecimal(2.95),basket.getTotal());
+        assertEquals(2.95f,basket.getTotal(),EPSILON);
     }
 
     @Test
     public void noProductsTest() {
-        assertEquals(new BigDecimal(0),basket.getTotal());
+        assertEquals(0f,basket.getTotal(),EPSILON);
     }
 
     @Test
@@ -53,7 +55,7 @@ public class ShoppingBasketTest {
         basket.addProduct(milk);
         basket.addProduct(milk);
 
-        assertEquals(new BigDecimal(6.9),basket.getTotal());
+        assertEquals(6.9f,basket.getTotal(),EPSILON);
 
     }
 
@@ -69,7 +71,7 @@ public class ShoppingBasketTest {
             if (p.equals(milk)){
                 milkCount++;
                 if (milkCount > 3 && milkCount % 3 == 1 ){
-                    p.setPrice(new BigDecimal(0));
+                    p.setPrice(0f);
                 }
             }
             discountedProducts.add(p);
