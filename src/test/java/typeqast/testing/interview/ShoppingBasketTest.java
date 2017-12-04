@@ -72,6 +72,7 @@ public class ShoppingBasketTest {
                 milkCount++;
                 if (milkCount > 3 && milkCount % 3 == 1 ){
                     p.setPrice(0f);
+                    milkCount = 0;
                 }
             }
             discountedProducts.add(p);
