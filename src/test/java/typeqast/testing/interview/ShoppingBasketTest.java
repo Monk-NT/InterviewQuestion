@@ -57,6 +57,11 @@ public class ShoppingBasketTest {
 
     }
 
+    /**
+     * This is a basic example of discount function.
+     * @param products - product list
+     * @return mutated products
+     */
     private ArrayList<Product> milkDiscount(ArrayList<Product> products){
         int milkCount = 0;
         ArrayList<Product> discountedProducts = new ArrayList<>();

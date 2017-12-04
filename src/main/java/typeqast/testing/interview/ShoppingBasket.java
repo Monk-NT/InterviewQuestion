@@ -29,7 +29,8 @@ public class ShoppingBasket {
     }
 
     public BigDecimal getTotal(){
-        return null;
+        BigDecimal total = new BigDecimal(0);
+        return total;
     }
 
 }
