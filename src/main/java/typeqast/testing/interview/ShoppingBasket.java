@@ -1,6 +1,5 @@
 package typeqast.testing.interview;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.function.Function;
 
@@ -28,8 +27,10 @@ public class ShoppingBasket {
         this.discounts.add(discount);
     }
 
-    public BigDecimal getTotal(){
-        BigDecimal total = new BigDecimal(0);
+    public float getTotal(){
+        float total = 0.0f;
+
+        for (Product p : products) total += p.getPrice();
         return total;
     }
 

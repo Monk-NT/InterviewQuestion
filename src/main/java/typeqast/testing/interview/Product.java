@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Product {
 
     private String name;
-    private BigDecimal price;
+    private float price;
 
     public Product(String name) {
         this.name = name;
@@ -18,11 +18,11 @@ public class Product {
         return name;
     }
 
-    public BigDecimal getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 }
